@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'WBChatIMKit_Example' do
+  pod 'WBChatIMKit', :path => '../'
+
+  target 'WBChatIMKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
