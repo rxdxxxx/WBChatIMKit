@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'WBChatIMKit'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of WBChatIMKit.'
+  s.summary          = "基于LeanCloud的IM功能,可以快速使用的UI框架"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,26 +17,31 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description  = "提供了发送文字,图片,语音消息的控件" \
+                   "提供了最近联系人列表"\
+                   "未读消息提醒, 草稿缓存等基础功能"
 
-  s.homepage         = 'https://github.com/Ding RedRain/WBChatIMKit'
+  s.homepage         = 'https://github.com/RedRainDHY/WBChatIMKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Ding RedRain' => '447154278@qq.com' }
-  s.source           = { :git => 'https://github.com/Ding RedRain/WBChatIMKit.git', :tag => s.version.to_s }
+  s.author           = { 'RedRain' => '447154278@qq.com' }
+  s.source           = { :git => 'https://github.com/RedRainDHY/WBChatIMKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'WBChatIMKit/Classes/**/*'
+  s.source_files = 'WBChatIMKit/**/*.{h,m}'
+  s.vendored_frameworks = 'WBChatIMKit/Classes/VoiceLib/lame.framework'
+  s.resources    = 'WBChatIMKit/Classes/Resource/*', 'WBChatIMKit/**/*.xib'
   
   # s.resource_bundles = {
   #   'WBChatIMKit' => ['WBChatIMKit/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'WBChatIMKit/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.requires_arc = true
+  s.dependency 'FMDB'
+  s.dependency 'AVOSCloud'
+  s.dependency 'AVOSCloudIM'
 end

@@ -20,7 +20,64 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-FG-LeP">
+                                <rect key="frame" x="88" y="100" width="199" height="30"/>
+                                <state key="normal" title="1.创建聊天室,并发送一条消息"/>
+                                <connections>
+                                    <action selector="createAndSend:" destination="whP-gf-Uak" eventType="touchUpInside" id="cxV-wA-Nbn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecT-i2-NgK">
+                                <rect key="frame" x="110" y="146" width="155" height="30"/>
+                                <state key="normal" title="2. 进入最近联系人列表"/>
+                                <connections>
+                                    <action selector="pushRecentConnecter:" destination="whP-gf-Uak" eventType="touchUpInside" id="INf-4q-SZ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2h2-RH-27O">
+                                <rect key="frame" x="141" y="256" width="92" height="30"/>
+                                <state key="normal" title="退出当前账号"/>
+                                <connections>
+                                    <action selector="logOut" destination="whP-gf-Uak" eventType="touchUpInside" id="lu2-xE-f31"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="默认使用Tom连接服务器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5w1-OH-jhP">
+                                <rect key="frame" x="109.5" y="70" width="156.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.41568627450000001" blue="0.25490196079999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alh-SL-h2T">
+                                <rect key="frame" x="154.5" y="376" width="66" height="30"/>
+                                <state key="normal" title="登录Jerry"/>
+                                <connections>
+                                    <action selector="loginJerry:" destination="whP-gf-Uak" eventType="touchUpInside" id="n6h-KO-m8a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1S-S3-aVF">
+                                <rect key="frame" x="157.5" y="316" width="60" height="30"/>
+                                <state key="normal" title="登录Tom"/>
+                                <connections>
+                                    <action selector="loginTom:" destination="whP-gf-Uak" eventType="touchUpInside" id="FgH-8P-e6g"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ecT-i2-NgK" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="0oP-ox-LDh"/>
+                            <constraint firstItem="j1S-S3-aVF" firstAttribute="top" secondItem="2h2-RH-27O" secondAttribute="bottom" constant="30" id="4cg-Sd-pJh"/>
+                            <constraint firstItem="Alh-SL-h2T" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="66C-Yt-puG"/>
+                            <constraint firstItem="2h2-RH-27O" firstAttribute="top" secondItem="ecT-i2-NgK" secondAttribute="bottom" constant="80" id="Czw-Qg-J2D"/>
+                            <constraint firstItem="j1S-S3-aVF" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="HgL-5t-lDx"/>
+                            <constraint firstItem="ecT-i2-NgK" firstAttribute="top" secondItem="sJi-FG-LeP" secondAttribute="bottom" constant="16" id="Mb6-24-8GV"/>
+                            <constraint firstItem="2h2-RH-27O" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="P4P-Ct-uas"/>
+                            <constraint firstItem="5w1-OH-jhP" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="UDN-lh-XrR"/>
+                            <constraint firstItem="5w1-OH-jhP" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="50" id="XfO-Bq-psz"/>
+                            <constraint firstItem="sJi-FG-LeP" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="80" id="a3w-dr-9s6"/>
+                            <constraint firstItem="sJi-FG-LeP" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="k3G-XX-aYk"/>
+                            <constraint firstItem="Alh-SL-h2T" firstAttribute="top" secondItem="j1S-S3-aVF" secondAttribute="bottom" constant="30" id="oBg-LD-71M"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>

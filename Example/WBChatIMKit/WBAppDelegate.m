@@ -7,12 +7,14 @@
 //
 
 #import "WBAppDelegate.h"
-
+#import <WBChatIMKit/WBChatIMKit.h>
 @implementation WBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [AVOSCloud setAllLogsEnabled:false];
+    [WBChatKit setAppId:@"O9I67dBpCiW8WcgoD89dCpla-gzGzoHsz"
+              clientKey:@"HwqdEYsaL3D3Xqr45Ryr0PW1"];
     return YES;
 }
 
