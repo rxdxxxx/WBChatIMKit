@@ -30,15 +30,16 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'WBChatIMKit/Classes/**/*.{h,m}'
-  s.vendored_frameworks = 'WBChatIMKit/VoiceLib/lame.framework'
+  s.source_files = 'WBChatIMKit/Classes/**/*.{h,m}','WBChatIMKit'
+
+  s.vendored_frameworks = 'WBChatIMKit/Classes/VoiceLib/lame.framework'
+
   s.resources    = 'WBChatIMKit/Classes/Resource/*', 'WBChatIMKit/**/*.xib'
   
   # s.resource_bundles = {
   #   'WBChatIMKit' => ['WBChatIMKit/Assets/*.png']
   # }
 
-  s.public_header_files = 'WBChatIMKit/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.requires_arc = true
   s.dependency 'FMDB'
