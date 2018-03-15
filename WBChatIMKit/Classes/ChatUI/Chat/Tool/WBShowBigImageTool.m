@@ -59,21 +59,21 @@
     
     [[UIApplication sharedApplication].keyWindow addSubview:_actionImageView];
     [UIView animateWithDuration:.3 animations:^{
-        CGFloat fixelW = CGImageGetWidth(_actionImageView.image.CGImage);
-        CGFloat fixelH = CGImageGetHeight(_actionImageView.image.CGImage);
-        _actionImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, fixelH * [UIScreen mainScreen].bounds.size.width / fixelW);
-        _actionImageView.center = _backView.center;
+        CGFloat fixelW = CGImageGetWidth(self.actionImageView.image.CGImage);
+        CGFloat fixelH = CGImageGetHeight(self.actionImageView.image.CGImage);
+        self.actionImageView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, fixelH * [UIScreen mainScreen].bounds.size.width / fixelW);
+        self.actionImageView.center = self.backView.center;
     }];
 }
 
 - (void)backTapAction{
     [UIApplication sharedApplication].statusBarHidden = NO;
     [UIView animateWithDuration:.2 animations:^{
-        _actionImageView.frame = self.tempFrame;
-        _backView.alpha = .3;
+        self.actionImageView.frame = self.tempFrame;
+        self.backView.alpha = .3;
     } completion:^(BOOL finished) {
-        [_backView removeFromSuperview];
-        [_actionImageView removeFromSuperview];
+        [self.backView removeFromSuperview];
+        [self.actionImageView removeFromSuperview];
     }];
 }
 

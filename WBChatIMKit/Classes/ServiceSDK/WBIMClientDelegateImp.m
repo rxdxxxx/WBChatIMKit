@@ -61,8 +61,8 @@
     self.client.delegate = self;
     
     // 3.开始连接服务器
-    AVIMClientOpenOption *option = [AVIMClientOpenOption new];
-    option.force = force;
+    AVIMClientOpenOption option = force ? AVIMClientOpenOptionForceOpen : AVIMClientOpenOptionReopen;
+    
     [self.client openWithOption:option callback:^(BOOL succeeded, NSError * _Nullable error) {
         
         [self updateConnectStatus];
@@ -151,6 +151,13 @@
     });
     
 }
+
+- (void)imClientClosed:(nonnull AVIMClient *)imClient error:(NSError * _Nullable)error {
+    do_dispatch_async_mainQueue(^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kIMClientClosedInError object:error];
+    });
+}
+
 
 
 @end

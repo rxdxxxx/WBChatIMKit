@@ -9,7 +9,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudIM/AVOSCloudIM.h>
 
-
+#define kIMClientClosedInError @"kIMClientClosedInError"
 
 @interface WBIMClientDelegateImp : NSObject
 

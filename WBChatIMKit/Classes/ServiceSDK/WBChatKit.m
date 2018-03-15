@@ -13,7 +13,7 @@
 
 
 
-@interface WBChatKit ()<AVIMClientDelegate>
+@interface WBChatKit ()
 
 /*!
  *  appId

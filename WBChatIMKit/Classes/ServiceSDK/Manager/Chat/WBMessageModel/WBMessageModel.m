@@ -14,6 +14,7 @@
 
 
 #define kMessageThumbImageKey @"thumbImg"
+#define kMessageLocalImgNameKey @"LocalImgName"
 
 
 @implementation WBMessageModel
@@ -39,14 +40,16 @@
             NSString *encodedImgString = info[kMessageThumbImageKey];
             messageModel.thumbImage = [UIImage imageWithData:[[NSData alloc] initWithBase64EncodedString:encodedImgString options:0]];
             
+            NSString *imageName = info[kMessageLocalImgNameKey];
+            NSString *imageFilePath = [[WBPathManager imagePath] stringByAppendingPathComponent:imageName];
+
             
-            AVIMImageMessage *imageMsg = (AVIMImageMessage*)message;
-            NSString *pathForFile = imageMsg.file.localPath;
             NSFileManager *fileManager = [NSFileManager defaultManager];
             NSString *imagePath;
-            if ([fileManager fileExistsAtPath:pathForFile]){
-                imagePath = imageMsg.file.localPath;
+            if ([fileManager fileExistsAtPath:imageFilePath]){
+                imagePath = imageFilePath;
             }else{
+                AVIMImageMessage *imageMsg = (AVIMImageMessage*)message;
                 imagePath = imageMsg.file.url;
             }
             
@@ -59,11 +62,11 @@
             messageModel.voiceDuration = @(audioMsg.duration).stringValue;
             
             
-            NSString *pathForFile = audioMsg.file.localPath;
+            NSString *pathForFile = audioMsg.file.url;
             NSFileManager *fileManager = [NSFileManager defaultManager];
             NSString *aPath;
             if ([fileManager fileExistsAtPath:pathForFile]){
-                aPath = audioMsg.file.localPath;
+                aPath = audioMsg.file.url;
             }else{
                 aPath = audioMsg.file.url;
             }
@@ -103,10 +106,12 @@
     WBMessageModel *messageModel = [WBMessageModel new];
     messageModel.status = AVIMMessageStatusSending;
     messageModel.thumbImage = [UIImage imageWithData:thumbData];
+    messageModel.imagePath = imageFilePath;
     
     AVIMImageMessage *imgMsg = [AVIMImageMessage messageWithText:nil
                                                 attachedFilePath:imageFilePath
-                                                      attributes:@{kMessageThumbImageKey:[thumbData base64EncodedStringWithOptions:0]}];
+                                                      attributes:@{kMessageThumbImageKey:[thumbData base64EncodedStringWithOptions:0],
+                                                                   kMessageLocalImgNameKey:imageName}];
     messageModel.content = imgMsg;
     
     return messageModel;

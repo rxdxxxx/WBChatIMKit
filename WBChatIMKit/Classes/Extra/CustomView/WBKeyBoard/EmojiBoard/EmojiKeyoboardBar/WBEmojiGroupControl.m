@@ -163,7 +163,7 @@
     if (group.type == WBEmotionPageTypeEmoji) {
         //???: 存在冲突：用户选中cellA,再此方法中立马调用方法选中cellB时，所有cell都不会被选中
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self setCurIndexPath:_curIndexPath];
+            [self setCurIndexPath:self.curIndexPath];
         });
         [self p_eidtMyEmojiButtonDown];
     }

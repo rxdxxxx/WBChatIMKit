@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, WBChatMessageType) {
 @property (nonatomic, strong) AVIMTypedMessage *content;
 
 
+
 + (instancetype)createWithTypedMessage:(AVIMTypedMessage *)message;
 
 

@@ -95,8 +95,12 @@
                 WBLog(@"未连接");
             }
                 break;
-            default:
+            case AVIMClientStatusOpened:
                 WBLog(@"连接正常");
+                [self reloadListData];
+                break;
+            default:
+                WBLog(@"连接...");
                 break;
         }
     });
