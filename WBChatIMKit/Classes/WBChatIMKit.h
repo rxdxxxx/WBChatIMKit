@@ -27,8 +27,8 @@
 #import "WBVoicePlayer.h"
 #import "WBImageBrowserCell.h"
 #import "WBImageBrowserView.h"
-#import "WBChatViewController.h"
 #import "WBChatViewController+Extension.h"
+#import "WBChatViewController.h"
 #import "WBChatListCell.h"
 #import "WBChatListCellModel.h"
 #import "WBBadgeButton.h"
@@ -98,7 +98,6 @@
 #import "WBIMDefine.h"
 #import "WBIMClientDelegateImp.h"
 #import "WBServiceSDKHeaders.h"
-#import "lame.h"
 #import "WBChatIMKit.h"
 
 #endif /* WBChatIMKit_h */

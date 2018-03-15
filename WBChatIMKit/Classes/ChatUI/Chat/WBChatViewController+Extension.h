@@ -6,6 +6,7 @@
 //
 
 #import <WBChatIMKit/WBChatIMKit.h>
+#import "WBChatViewController.h"
 
 @interface WBChatViewController (Extension)
 
