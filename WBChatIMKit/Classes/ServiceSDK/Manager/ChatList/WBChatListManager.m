@@ -154,12 +154,16 @@ static AVIMConversation * staticLastConversation = nil;
     
 }
 - (void)pushChatListUpdateAction:(AVIMConversation *)conversation{
-    
+    NSMutableDictionary *mDic = [NSMutableDictionary new];
+    if (conversation) {
+        mDic[WBMessageConversationKey] = conversation;
+    }
+    if (conversation.lastMessage) {
+        mDic[WBMessageMessageKey] = conversation.lastMessage;
+    }
     [[NSNotificationCenter defaultCenter]
      postNotificationName:WBChatListUpdateNotification object:nil
-     userInfo:@{WBMessageConversationKey:conversation,
-                WBMessageMessageKey: conversation.lastMessage
-                }];
+     userInfo:mDic];
 }
 
 

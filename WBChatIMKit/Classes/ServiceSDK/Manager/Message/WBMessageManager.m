@@ -45,13 +45,18 @@ WB_SYNTHESIZE_SINGLETON_FOR_CLASS(WBMessageManager)
 #pragma mark - Private
 - (void)receiveMessage:(AVIMTypedMessage *)message
           conversation:(AVIMConversation *)conversation {
-        
+    
+    NSMutableDictionary *mDic = [NSMutableDictionary new];
+    if (conversation) {
+        mDic[WBMessageConversationKey] = conversation;
+    }
+    if (message) {
+        mDic[WBMessageMessageKey] = message;
+    }
     
     [[NSNotificationCenter defaultCenter]
      postNotificationName:WBMessageNewReceiveNotification object:nil
-     userInfo:@{WBMessageConversationKey:conversation,
-                WBMessageMessageKey: message
-                }];
+     userInfo:mDic];
 }
 
 @end
