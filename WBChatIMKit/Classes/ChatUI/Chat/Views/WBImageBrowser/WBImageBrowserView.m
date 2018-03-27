@@ -100,7 +100,7 @@ static  NSString *kWBImageBrowserView = @"kWBImageBrowserView";
         cell.imageImageView.image = messageModel.thumbImage;
     }
     else{
-        cell.imageImageView.image = [UIImage wb_resourceImageNamed:@"Placeholder_Image"];
+        cell.imageImageView.image = [WBChatCellConfig sharedInstance].placeholdImage;
     }
     
     

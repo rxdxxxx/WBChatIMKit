@@ -118,7 +118,7 @@
         self.dialogCellImageView.image = self.tempChatModel.thumbImage;
     }
     else{
-        self.dialogCellImageView.image = [UIImage wb_resourceImageNamed:@"Placeholder_Image"];
+        self.dialogCellImageView.image = [WBChatCellConfig sharedInstance].placeholdImage;
     }
     
     

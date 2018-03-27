@@ -7,7 +7,8 @@
 //
 
 #import "WBBaseController.h"
-
+@class WBChatListCellModel;
 @interface WBChatListController : WBBaseController
+@property (nonatomic, strong) NSMutableArray<WBChatListCellModel *> *dataArray;
 
 @end

@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) WBImageLoad *imageLoad;
 @property (nonatomic, strong) UIImage *placeholdHeaderImage;
+@property (nonatomic, strong) UIImage *placeholdImage;
 
 @property (nonatomic, assign) CGFloat normalSpace; ///< 控件间的距离 默认: 5
 

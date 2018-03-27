@@ -141,19 +141,19 @@
         
         bubbleImage = [self bulleiImageWithNormelName:@"dialog_bubble_other"];
         if (!self.headerImageView.gestureRecognizers.count) {
-//            [self.headerImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushToTheDetialVC)]];
-//            [self.headerImageView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(headerImageViewLongPressEvent:)]];
+            
         }
-        self.headerImageView.image = [UIImage wb_userHeaderPlaceholderImage];
-//        [self.headerImageView xm_imageWithUserID:dataModel.senderUserId.longLongValue
-//                                     placeholder:[UIImage wb_userHeaderPlaceholderImage]];
+        
+        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(memberImageView:clientID:placeholdImage:)]){
+            [[WBChatKit sharedInstance].delegate memberImageView:self.headerImageView
+                                                        clientID:dataModel.clientId
+                                                  placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+        }else{
+            self.headerImageView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
+        }
         
         //显示昵称
         self.usernameLabel.hidden = NO;
-        
-//        [[XMContactManager manager] fastContactWithRequestComponets:[XMContactRequestComponets new].xm_userid(dataModel.senderUserId.longLongValue)  tryingBlock:nil result:^(XMContactModel *contactModel, BOOL sync) {
-//            self.usernameLabel.text = contactModel.displayName;
-//        }];
         
     }
     // 发送的信息的气泡
@@ -163,7 +163,7 @@
         //如果为内容为图片，则另外显示气泡形状
         self.myHeaderImageView.userInteractionEnabled = YES;
         if (!self.myHeaderImageView.gestureRecognizers.count) {
-//            [self.myHeaderImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushToTheDetialVC)]];
+
         }
         
         if(self.cellModel.cellType == WBChatMessageTypeCardInfo ||
@@ -184,13 +184,16 @@
         }
         
 
+        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(memberImageView:clientID:placeholdImage:)]){
+            [[WBChatKit sharedInstance].delegate memberImageView:self.headerImageView
+                                                        clientID:dataModel.clientId
+                                                  placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+            
+        }else{
+            self.myHeaderImageView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
+        }
         
-        // 显示自己的头像
-        self.myHeaderImageView.image = [UIImage wb_userHeaderPlaceholderImage];
 
-//        [self.myHeaderImageView wb_imageWithUserID:dataModel.senderUserId.longLongValue
-//                                       placeholder:[UIImage xm_userHeaderPlaceholderImage]];
-        
         //发送失败显示的图标
 
         

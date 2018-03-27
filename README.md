@@ -14,14 +14,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### 安装
 
-在Podfile文件中添加下面👇这行代码.
+在`Podfile`文件中添加下面👇这行代码
 
 ```ruby
 pod 'WBChatIMKit'
 ```
 
 ### 初始化
-首先需要在LeanCloud注册自己的应用,得到对应的 `AppId` 和 `clientKey ` 后在程序中设置好自己的应用id.
+首先需要在[ LeanCloud ](https://leancloud.cn)注册自己的应用,得到对应的 `AppId` 和 `clientKey ` 后在程序中设置对应信息
 
 ```
 #import <WBChatIMKit/WBChatIMKit.h>
@@ -36,7 +36,7 @@ pod 'WBChatIMKit'
 ```
 
 ### 连接服务器
-SDK初始化成功后, 就可以用某一身份连接服务器. 实例代码如下.
+`SDK`初始化成功后, 就可以用某一身份连接服务器. 实例代码如下.
 
 ```
 [[WBChatKit sharedInstance] openWithClientId:@"10000"
@@ -66,7 +66,7 @@ UINavigationController *nav = [[UINavigationController alloc] initWithRootViewCo
 
 ```
 
-第一次登陆是没有会话信息的, 你可以给任意ID发送一条消息,就可以在会话列表中看到这条记录了.
+第一次登陆是没有会话信息的, 你可以给任意`ID`发送一条消息,就可以在会话列表中看到这条记录了.
 
 ##### 发送一条消息:
 
@@ -135,7 +135,7 @@ WBMessageModel *text = [WBMessageModel createWithText:[NSDate new].description];
 ```
 
 ## 其他
-更多细节介绍请查看 [这里]()
+更多细节介绍请查看 [  这里  ](https://github.com/RedRainDHY/WBChatIMKit/blob/master/Docs/Explanation.md)
 
 
 ## 依赖库

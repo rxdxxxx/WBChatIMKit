@@ -27,6 +27,7 @@
     if (self) {
         self.imageLoad = [[WBImageLoad alloc] init];
         self.placeholdHeaderImage = [UIImage wb_resourceImageNamed:@"header_male"];
+        self.placeholdImage = [UIImage wb_resourceImageNamed:@"Placeholder_Image"];
         
         self.headerImageSize = CGSizeMake(43, 43);
         self.headerMarginSpace = 15;

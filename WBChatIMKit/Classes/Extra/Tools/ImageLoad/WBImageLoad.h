@@ -10,6 +10,8 @@
 
 @interface WBImageLoad : NSObject
 
-- (void)imageView:(UIImageView *)imageView urlString:(NSString *)urlString placeholderImage:(UIImage *)placeholderImage;
+- (void)imageView:(UIImageView *)imageView
+        urlString:(NSString *)urlString
+ placeholderImage:(UIImage *)placeholderImage;
 
 @end

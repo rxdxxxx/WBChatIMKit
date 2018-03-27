@@ -48,7 +48,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -63,6 +63,42 @@
 - (void)setupUI{
     
 }
+- (void)setupHeaderImageView{
+    WBConversationType type = self.cellModel.dataModel.conversation.wb_conversationType;
+    if (type == WBConversationTypeSingle) {
+        NSArray *member = self.cellModel.dataModel.conversation.members;
+        // 如果实现了代理, 那么使用代理返回的数据
+        if ([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(imageView:clientID:placeholdImage:)]) {
+            NSString *otherObjectId = member.firstObject;
+            if ([otherObjectId isEqualToString:[WBUserManager sharedInstance].clientId]) {
+                otherObjectId = member.lastObject;
+            }
+            
+            [[WBChatKit sharedInstance].delegate imageView:self.chatHeaderView
+                                                  clientID:otherObjectId
+                                            placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+            
+        }else{
+            self.chatHeaderView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
+        }
+        
+    }
+    
+    // 非单人会话,使用conversationId查询图片
+    else{
+        if ([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(imageView:conversationId:placeholdImage:)]) {
+            
+            [[WBChatKit sharedInstance].delegate imageView:self.chatHeaderView
+                                            conversationId:self.cellModel.dataModel.conversation.conversationId
+                                            placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+            
+        }else{
+            self.chatHeaderView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
+            
+        }
+    }
+}
+
 #pragma mark -  Public Methods
 + (CGFloat)cellHeight{
     return 70;
@@ -72,7 +108,8 @@
     _cellModel = cellModel;
     
     self.chatHeaderView.frame = cellModel.chatUserHeaderViewF;
-    self.chatHeaderView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
+    [self setupHeaderImageView];
+    
     
     self.chatTitleLabel.frame = cellModel.chatTitleF;
     self.chatTitleLabel.text = cellModel.dataModel.conversation.name;
@@ -150,3 +187,4 @@
     return _unreadBadgeBtn;
 }
 @end
+

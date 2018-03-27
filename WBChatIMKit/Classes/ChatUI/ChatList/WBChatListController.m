@@ -13,7 +13,6 @@
 #import "WBIMDefine.h"
 
 @interface WBChatListController ()
-@property (nonatomic, strong) NSMutableArray<WBChatListCellModel *> *dataArray;
 @property (nonatomic, strong) NSTimer *dalayTimer;
 @end
 
