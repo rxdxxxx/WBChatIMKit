@@ -140,7 +140,7 @@ WB_SYNTHESIZE_SINGLETON_FOR_CLASS(WBChatListManager)
 #pragma mark - 更新最近一条消息记录到List
 static AVIMConversation * staticLastConversation = nil;
 - (void)insertConversationToList:(AVIMConversation *)conversation{
-    WBIMLog(@"insertConversationToList   2");
+    
     if (conversation == nil) {
         return;
     }

@@ -60,7 +60,7 @@
     [CATransaction setDisableActions:YES];
     cell.cellModel = cellModel;
     [CATransaction commit];
-
+    
     return cell;
 }
 
@@ -144,10 +144,10 @@
             
         }
         
-        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(memberImageView:clientID:placeholdImage:)]){
-            [[WBChatKit sharedInstance].delegate memberImageView:self.headerImageView
-                                                        clientID:dataModel.clientId
-                                                  placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(imageView:clientID:placeholdImage:)]){
+            [[WBChatKit sharedInstance].delegate imageView:self.headerImageView
+                                                  clientID:dataModel.clientId
+                                            placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
         }else{
             self.headerImageView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
         }
@@ -163,7 +163,7 @@
         //如果为内容为图片，则另外显示气泡形状
         self.myHeaderImageView.userInteractionEnabled = YES;
         if (!self.myHeaderImageView.gestureRecognizers.count) {
-
+            
         }
         
         if(self.cellModel.cellType == WBChatMessageTypeCardInfo ||
@@ -183,19 +183,19 @@
             self.messageReadStateLabel.hidden = YES;
         }
         
-
-        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(memberImageView:clientID:placeholdImage:)]){
-            [[WBChatKit sharedInstance].delegate memberImageView:self.headerImageView
-                                                        clientID:dataModel.clientId
-                                                  placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
+        
+        if([[WBChatKit sharedInstance].delegate respondsToSelector:@selector(imageView:clientID:placeholdImage:)]){
+            [[WBChatKit sharedInstance].delegate imageView:self.headerImageView
+                                                  clientID:dataModel.clientId
+                                            placeholdImage:[WBChatCellConfig sharedInstance].placeholdHeaderImage];
             
         }else{
             self.myHeaderImageView.image = [WBChatCellConfig sharedInstance].placeholdHeaderImage;
         }
         
-
+        
         //发送失败显示的图标
-
+        
         
         if (dataModel.status == AVIMMessageStatusFailed || dataModel.status == AVIMMessageStatusNone) {
             self.messageStatusImageView.hidden = NO;
@@ -296,3 +296,4 @@
 }
 
 @end
+
