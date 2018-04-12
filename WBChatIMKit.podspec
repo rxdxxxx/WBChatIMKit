@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'WBChatIMKit'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = "基于LeanCloud的IM功能,可以快速使用的UI框架"
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
                    "提供了最近联系人列表"\
                    "未读消息提醒, 草稿缓存等基础功能"
 
-  s.homepage         = 'https://github.com/RedRainDHY/WBChatIMKit'
+  s.homepage         = 'https://github.com/rxdxxxx/WBChatIMKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'RedRain' => '447154278@qq.com' }
-  s.source           = { :git => 'https://github.com/RedRainDHY/WBChatIMKit.git', :tag => s.version.to_s }
+  s.author           = { 'rxdxxxx' => '447154278@qq.com' }
+  s.source           = { :git => 'https://github.com/rxdxxxx/WBChatIMKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
